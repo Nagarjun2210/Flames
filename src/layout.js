@@ -1,8 +1,11 @@
 import React from 'react';
-import { useState } from "react";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import find_final_letter from './logic.js';
 import './style.css';
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "G-QNJGYBD076";
+ReactGA.initialize(TRACKING_ID);
 
 
 function Layout(){
