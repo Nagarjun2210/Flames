@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import find_final_letter from './logic.js';
 import './style.css';
 import ReactGA from "react-ga";
@@ -9,6 +9,9 @@ ReactGA.initialize(TRACKING_ID);
 
 
 function Layout(){
+        useEffect(() => {
+        ReactGA.pageview(window.location.pathname);
+    }, []);
     var [name_1, sn1] = useState("");
     var [name_2, sn2] = useState("");
     var output = useRef("");
