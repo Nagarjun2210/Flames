@@ -1,17 +1,19 @@
 import React from 'react';
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import find_final_letter from './logic.js';
 import './style.css';
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 const TRACKING_ID = "G-QNJGYBD076";
 ReactGA.initialize(TRACKING_ID);
+console.log("outside layout");
 
 
 function Layout(){
-        useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
-    }, []);
+    ReactGA.send({
+        hitType: "pageview",
+        page: window.location.pathname,
+    });
     var [name_1, sn1] = useState("");
     var [name_2, sn2] = useState("");
     var output = useRef("");
@@ -21,7 +23,7 @@ function Layout(){
     };
     
     const layout = (
-        <body >
+        <div >
             <div>
             <h1>FLAMES</h1>
                 <label>Enter name 1
@@ -33,7 +35,7 @@ function Layout(){
                 <button type="button" onClick={() => setOutput(name_1, name_2)}> Submit</button>
             <p id="output"></p>
             </div>
-        </body>
+        </div>
     );
 return layout;
 };
