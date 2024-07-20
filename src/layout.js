@@ -4,6 +4,7 @@ import { useRef } from "react";
 import find_final_letter from './logic.js';
 import './style.css';
 
+
 function Layout(){
     var [name_1, sn1] = useState("");
     var [name_2, sn2] = useState("");
